@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "X 自动评论（稳定可发送版）",
+  "version": "1.0.0",
+  "description": "在 X/Twitter 网页端自动浏览并发表评论（DOM 模拟 + AI）。",
+  "permissions": ["storage", "tabs", "activeTab"],
+  "host_permissions": ["https://x.com/*", "https://twitter.com/*", "*://*/*"],
+  "action": { "default_popup": "popup.html" },
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
